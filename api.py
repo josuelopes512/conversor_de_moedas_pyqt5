@@ -4,14 +4,15 @@ import xmltodict
 def moeda(de, para):
     req = requests.get(f"https://economia.awesomeapi.com.br/json/all/{de}-{para}")
     if(req.status_code == 200):
-        # result = (req.json()).get(de, None)
         return ((req.json()).get(de, None)).get("high", None)
 
 
 def conversor(moeda_input, moeda_consulta, valor):
-    if type(valor) != float:
-        valor = float(valor)
-    return str(valor * float(moeda(moeda_consulta, moeda_input)))
+    if moeda_input != moeda_consulta:
+        if type(valor) != float:
+            valor = float(valor)
+        return "{:.2f}".format((valor * float(moeda(moeda_consulta, moeda_input))))
+    return "Moeda Inválida"
 
 def todas_as_moedas():
     req = requests.get("https://economia.awesomeapi.com.br/xml/available/uniq")
@@ -28,11 +29,11 @@ def key_to_value(key):
         result = json_.get(key, None)
         return result
 
-de = "BRL"
+de = "USD"
 para = "USD"
 valor = 12
 
 total = conversor(de, para, 12)
 print(f"{valor} {para} = {total} {de}")
 # print(todas_as_moedas())
-print(key_to_value("BRL"))
+# print(key_to_value("BRL"))
