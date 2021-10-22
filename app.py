@@ -49,4 +49,3 @@ class Ui_Dialog(object):
         self.pushButton.setText(_translate("Dialog", "PushButton"))
         self.label.setText(_translate("Dialog", "TextLabel"))
         self.label_2.setText(_translate("Dialog", "TextLabel"))
-        Dialog.show()
