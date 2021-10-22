@@ -18,8 +18,7 @@ def todas_as_moedas():
     if(req.status_code == 200):
         xparse = xmltodict.parse(req.text)
         json_ = xparse.get("xml", None)
-        a = [i for i, _ in json_.items()]
-        return a
+        return [i for i, _ in json_.items()]
 
 def key_to_value(key):
     req = requests.get("https://economia.awesomeapi.com.br/xml/available/uniq")
