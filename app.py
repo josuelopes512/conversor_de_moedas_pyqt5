@@ -50,12 +50,3 @@ class Ui_Dialog(object):
         self.label.setText(_translate("Dialog", "TextLabel"))
         self.label_2.setText(_translate("Dialog", "TextLabel"))
         Dialog.show()
-
-if __name__=="__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_Dialog()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
