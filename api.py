@@ -46,7 +46,7 @@ class ApiConversor:
                 total = "{:.2f}".format(valor * float(moeda))
                 return float(total)
         if not self.is_possui_combinacao():
-            return "Moeda Não Encontrada"
+            return "Não Disponivel"
         return "Moeda Inválida"
     
     def get_keys(self):
