@@ -5,6 +5,8 @@ class App(QtWidgets.QMainWindow, Ui_Dialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         super().setupUi(self)
+        self.setWindowTitle("Conversor de Moedas")
+        self.setFixedSize(400, 300)
         self.lineEdit.textChanged.connect(self.converter)
         self.pushButton.clicked.connect(self.inverter)
 
