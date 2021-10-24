@@ -13,6 +13,10 @@ class App(QtWidgets.QMainWindow, Ui_Dialog):
             self.comboBox.currentText(), self.comboBox_2.currentText(), valor
         ) if valor else ""
         self.lineEdit_2.setText("{}".format(convertido))
+        if api.moeda():
+            self.label_3.setText(
+                "      1 {} = {} {}".format(
+                    self.comboBox.currentText(), api.moeda(), self.comboBox_2.currentText()))
         return self.lineEdit_2.paste
 
 if __name__ == "__main__":

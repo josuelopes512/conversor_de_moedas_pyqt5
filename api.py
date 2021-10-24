@@ -31,7 +31,6 @@ class ApiConversor:
     def moeda(self):
         req = requests.get(f"{self.api}/json/all/{self.moeda_consulta}-{self.moeda_local}")
         if(req.status_code == 200):
-            # print(req.json())
             return ((req.json()).get(self.moeda_consulta, None)).get("high", None)
 
     def conversor(self, moeda_consulta, moeda_local, valor):
@@ -59,18 +58,3 @@ class ApiConversor:
     
     def key_to_value(self, key):
         return self.keys[key]
-
-
-# de = "BRL"
-# para = "USD"
-# valor = 12
-
-# moeda = ApiConversor()
-# print(moeda.key_to_value("BRL"))
-# print(moeda.is_possui_combinacao())
-# total = moeda.conversor(de, para, 12)
-# print(moeda.carrega_combinacoes)
-# print(type(total), type(valor))
-# print(f"{valor} {de} = {total} {para}")
-# print(moeda.get_todas_as_moedas())
-# print(moeda.key_to_value("BRL"))
