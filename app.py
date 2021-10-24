@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\untitled.ui'
+# Form implementation generated from reading ui file 'untitled.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -9,36 +9,61 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from api import *
 
+api = ApiConversor()
+moedas = api.todas_as_moedas
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(400, 300)
+        self.lineEdit = QtWidgets.QLineEdit(Dialog)
+        self.lineEdit.setGeometry(QtCore.QRect(20, 90, 113, 20))
+        self.lineEdit.setInputMask("")
+        self.lineEdit.setObjectName("lineEdit")
+
         self.pushButton = QtWidgets.QPushButton(Dialog)
         self.pushButton.setGeometry(QtCore.QRect(160, 210, 75, 23))
-        self.pushButton.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(60,179,113);\n"
-"    border: 2px solid rgb(0,0,0);\n"
-"    border-radius: 5px\n"
-"}")
         self.pushButton.setObjectName("pushButton")
-        self.frame = QtWidgets.QFrame(Dialog)
-        self.frame.setGeometry(QtCore.QRect(30, 60, 120, 80))
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.label = QtWidgets.QLabel(self.frame)
-        self.label.setGeometry(QtCore.QRect(30, 30, 47, 13))
+
+        self.label = QtWidgets.QLabel(Dialog)
+        self.label.setGeometry(QtCore.QRect(50, 150, 47, 13))
         self.label.setObjectName("label")
-        self.frame_2 = QtWidgets.QFrame(Dialog)
-        self.frame_2.setGeometry(QtCore.QRect(230, 60, 120, 80))
-        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_2.setObjectName("frame_2")
-        self.label_2 = QtWidgets.QLabel(self.frame_2)
-        self.label_2.setGeometry(QtCore.QRect(30, 30, 47, 13))
+
+        self.label_3 = QtWidgets.QLabel(Dialog)
+        self.label_3.setGeometry(QtCore.QRect(170, 240, 47, 13))
+        self.label_3.setObjectName("label_3")
+
+        self.comboBox = QtWidgets.QComboBox(Dialog)
+        self.comboBox.setGeometry(QtCore.QRect(40, 120, 69, 22))
+        self.comboBox.setObjectName("comboBox")
+        for _ in range(len(moedas)):
+            self.comboBox.addItem("")
+        
+        self.comboBox_2 = QtWidgets.QComboBox(Dialog)
+        self.comboBox_2.setGeometry(QtCore.QRect(270, 120, 69, 22))
+        self.comboBox_2.setObjectName("comboBox_2")
+        for _ in range(len(moedas)):
+            self.comboBox_2.addItem("")
+
+        self.lineEdit_2 = QtWidgets.QLineEdit(Dialog)
+        self.lineEdit_2.setGeometry(QtCore.QRect(250, 90, 113, 20))
+        self.lineEdit_2.setReadOnly(True)
+        self.lineEdit_2.setObjectName("lineEdit_2")
+
+        self.label_2 = QtWidgets.QLabel(Dialog)
+        self.label_2.setGeometry(QtCore.QRect(280, 150, 47, 13))
         self.label_2.setObjectName("label_2")
+
+        self.label_4 = QtWidgets.QLabel(Dialog)
+        self.label_4.setGeometry(QtCore.QRect(60, 20, 281, 31))
+
+        font = QtGui.QFont()
+        font.setPointSize(22)
+
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -46,6 +71,17 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.pushButton.setText(_translate("Dialog", "PushButton"))
+
+        self.lineEdit.setPlaceholderText(_translate("Dialog", "Digite Um Valor"))
+
+        self.pushButton.setText(_translate("Dialog", ":left_right_arrow:"))
+
         self.label.setText(_translate("Dialog", "TextLabel"))
+        self.label_3.setText(_translate("Dialog", "TextLabel"))
         self.label_2.setText(_translate("Dialog", "TextLabel"))
+        self.label_4.setText(_translate("Dialog", "Conversor de Moedas"))
+
+        for i in range(len(moedas)):
+            text = moedas[i]
+            self.comboBox.setItemText(i, _translate("Dialog", text))
+            self.comboBox_2.setItemText(i, _translate("Dialog", text))
