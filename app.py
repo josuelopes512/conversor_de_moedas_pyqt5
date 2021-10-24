@@ -78,6 +78,8 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
 
         self.lineEdit.setPlaceholderText(_translate("Dialog", "Digite Um Valor"))
+        # self.lineEdit.setInputMask(_translate("Dialog", u"###0.00", None))
+        # self.lineEdit.setValidator()
         self.pushButton.setText(_translate("Dialog", "⇆"))
         self.label.setText(_translate("Dialog", ""))
         self.label_3.setText(_translate("Dialog", ""))
