@@ -31,7 +31,7 @@ class ApiConversor:
     def moeda(self):
         req = requests.get(f"{self.api}/json/all/{self.moeda_consulta}-{self.moeda_local}")
         if(req.status_code == 200):
-            return ((req.json()).get(self.moeda_consulta, None)).get("high", None)
+            return "{:.2f}".format(float(((req.json()).get(self.moeda_consulta, None)).get("high", None)))
 
     def conversor(self, moeda_consulta, moeda_local, valor):
         self.moeda_consulta = moeda_consulta
